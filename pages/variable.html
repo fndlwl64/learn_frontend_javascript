@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Learn Variable</h1>
+    
+    <div>변수, 상수</div>
+    <div>콘솔 에러 발생</div>
+    
+    <script>
+        console.log("Variable Example:");
+        console.log(varExample); // undefined (호이스팅)
+        var varExample = "Hello, var!";
+
+        console.log("\nLet Example:");
+        try{
+            console.log(letExample); // ReferenceError
+            let letExample = "Hello, let!";
+        }catch(e){
+            console.log(e.message); // letExample is not defined
+        }
+
+        console.log("\nConst Example:");
+        try{
+            console.log(constExample); // ReferenceError
+            const constExample = "Hello, const!";
+        }catch(e){
+            console.log(e.message); // constExample is not defined
+        }
+        
+        // 재할당 예시
+        let letExample2 = "Initial value"; 
+        var varExample = "New value for var"; // 가능
+        //let letExample2 = "New value for let"; // SyntexError -> 전체 스크립트 실행 중단
+        //try catch로 감싸도 안됨 -> 자바스크립트 엔진이 전체 스크립트를 실행하지 않음 -> why??????
+    </script>
+</body>
+</html>
