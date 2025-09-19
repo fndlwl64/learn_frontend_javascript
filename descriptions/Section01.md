@@ -1,27 +1,32 @@
 ## Section01
 ### 기초 문법
+- 선언과 할당
+    - 선언: 저장소의 자료형(종류)과 이름을 정하는 것 
+    - 할당: 선언한 저장소에 맞는 자료형의 데이터 값을 저장하는 것
 - 변수와 상수
+    - 변수: 런타임 중 변경되는 값을 저장하기 위한 저장소(var, let)
+    - 상수: 변화하지 않는 값을 저장하기 위한 저장소(const)
     - var: 재할당 가능한 변수 선언
-        - caution: 호이스팅(hoisting) 문제 발생 가능 / type safety 없거나 약함
+        - *caution*: 호이스팅(hoisting) 문제 발생 가능 / type safety 없거나 약함
     - let: 재할당 가능한 변수 선언 (ES6)
-        - comment: 블록 스코프에 영향을 받음 / 약간의 type safety
-        - caution: 타입 변환에는 type safety가 없음 (ex. 처음에 문자열할당해도 숫자 재할당 가능)
+        - **comment**: 블록 스코프에 영향을 받음 / 약간의 type safety
+        - *caution*: 타입 변환에는 type safety가 없음 (ex. 처음에 자료형이 문자열인 값을 할당한 뒤 숫자 값으로 재할당 가능 -> 에러 발생 X )
     - const: 재할당 불가능한 상수 선언 (ES6)
-        - comment: 블록 스코프에 영향을 받음 / type safety
+        - **comment**: 블록 스코프에 영향을 받음 / type safety
 ### 스코프, 호이스팅
 - 스코프: 변수와 함수가 접근할 수 있는 범위
     - 전역 스코프: 어디서든 접근 가능
     - 함수 스코프: 함수 내부에서만 접근 가능
     - 블록 스코프: 중괄호 {} 내부에서만 접근 가능 (let, const)
-    - comment: Scope는 범위를 뜻함.
+    - **comment**: Scope는 범위를 뜻함.
 - 호이스팅: 변수와 함수 선언이 해당 범위의 최상단으로 끌어올려지는 현상
     - var는 선언과 초기화가 동시에 호이스팅
     - let과 const는 선언만 호이스팅, 초기화는 호이스팅되지 않음 (TDZ)
-        - comment: Hoist는 들어올리다를 뜻함.
+    - **comment**: Hoist는 들어올리다를 뜻함.
 ### 자료형
 - 원시 자료형: number, string, boolean, null, undefined, symbol (ES6)
 - 참조 자료형: object, array, function
 - typeof 연산자: 변수의 자료형을 확인하는 데 사용
 - 참조 자료형 심화
-    - 객체, 배열, 함수 (**to be continued**)
-    - 객체 내장 함수 (**to be continued**)
+    - 객체, 배열, 함수 (**~to be continued**)
+    - 객체 내장 함수 (**~to be continued**)
