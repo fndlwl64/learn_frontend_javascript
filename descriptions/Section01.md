@@ -23,10 +23,18 @@
     - var는 선언과 초기화가 동시에 호이스팅
     - let과 const는 선언만 호이스팅, 초기화는 호이스팅되지 않음 (TDZ)
     - **comment**: Hoist는 들어올리다를 뜻함.
-### 자료형
-- 원시 자료형: number, string, boolean, null, undefined, symbol (ES6)
-- 참조 자료형: object, array, function
-- typeof 연산자: 변수의 자료형을 확인하는 데 사용
-- 참조 자료형 심화
-    - 객체, 배열, 함수 (**~to be continued**)
-    - 객체 내장 함수 (**~to be continued**)
+### 객체
+#### 자료형
+- 원시 자료형: 자바스크립트에서 기본으로 제공되는 자료형 (객체 X)
+    - number, bigint, string, boolean, null, undefined, symbol
+- 참조 자료형: 속성의 모음으로 이루어진 자료형(객체 O)
+    - object, array, function, ...
+#### 객체
+- 속성들의 모음
+- 속성(property)
+    - key 값으로 식별되는 고유의 데이터 모음
+    - property 값(value)으로 원시 자료형 ,참조 자료형, 함수 등 할당 가능
+#### 심화
+- 배열
+    - Array: 
+- 객체 내장 함수 (**~to be continued**)
