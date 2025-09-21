@@ -15,56 +15,59 @@
     <h1>Learn Scope, Hoisting</h1>
     <br>
     <div>스크립트</div>
-    <textarea name="" id="" rows="50" cols="100" readonly>
-/**현재 페이지에서 실행한 자바스크립트 코드(개발자도구로 결과 확인 가능)*/
-// 전역, 함수 스코프 예시
-console.log("\nFunction Scope Example:");
-var globalVar = "I am global";
-function exampleFunction() {    
-    var functionVar = "I am in a function";
-    if (true) {
-        let blockLet = "I am in a block";
-        console.log(blockLet); // 접근 가능
-    }
-    console.log(functionVar); // 접근 가능
-    try {
-        console.log(blockLet); // ReferenceError
-    } catch (e) {
-        console.log(e.message); // blockLet is not defined
-    }
-}
-exampleFunction();
-console.log("Global Scope Example:");
-console.log(globalVar); // 접근 가능
+    <pre>
+        <code>
+        /**현재 페이지에서 실행한 자바스크립트 코드(개발자도구로 결과 확인 가능)*/
+        // 전역, 함수 스코프 예시
+        console.log("\nFunction Scope Example:");
+        var globalVar = "I am global";
+        function exampleFunction() {
+            var functionVar = "I am in a function";
+            if (true) {
+                let blockLet = "I am in a block";
+                console.log(blockLet); // 접근 가능
+            }
+            console.log(functionVar); // 접근 가능
+            try {
+                console.log(blockLet); // ReferenceError
+            } catch (e) {
+                console.log(e.message); // blockLet is not defined
+            }
+        }
+        exampleFunction();
+        console.log("Global Scope Example:");
+        console.log(globalVar); // 접근 가능
 
-console.log("\nHoisting Example:");
-try{
-    console.log(functionVar); // ReferenceError
-}catch(e){
-    console.log(e.message); // functionVar is not defined
-}
+        console.log("\nHoisting Example:");
+        try{
+            console.log(functionVar); // ReferenceError
+        }catch(e){
+            console.log(e.message); // functionVar is not defined
+        }
 
-// 블록 스코프 예시
-// let, const는 블록 스코프를 가짐
-console.log("Block Scope Example:");
-for (let i = 0; i < 3; i++) {
-    console.log(i); // 0, 1, 2
-}
-try {
-    console.log(i); // ReferenceError
-} catch (e) {
-    console.log(e.message); // i is not defined
-}
-
-// var는 함수 스코프를 가짐(블록 스코프 아님)
-console.log("Var Scope Example:");
-for (var j = 0; j < 3; j++) {
-    console.log(j); // 0, 1, 2
-}
-console.log("var j after loop:");
-console.log(j); // 3 (var는 함수 스코프이므로 접근 가능)
-    </textarea>
+        // 블록 스코프 예시
+        // let, const는 블록 스코프를 가짐
+        console.log("Block Scope Example:");
+        for (let i = 0; i < 3; i++) {
+            console.log(i); // 0, 1, 2
+        }
+        try {
+            console.log(i); // ReferenceError
+        } catch (e) {
+            console.log(e.message); // i is not defined
+        }
+        
+        // var는 함수 스코프를 가짐(블록 스코프 아님)
+        console.log("Var Scope Example:");
+        for (var j = 0; j < 3; j++) {
+            console.log(j); // 0, 1, 2
+        }
+        console.log("var j after loop:");
+        console.log(j); // 3 (var는 함수 스코프이므로 접근 가능)
+        </code>
+    </pre>
     <script>
+        /**현재 페이지에서 실행한 자바스크립트 코드(개발자도구로 결과 확인 가능)*/
         // 전역, 함수 스코프 예시
         console.log("\nFunction Scope Example:");
         var globalVar = "I am global";
