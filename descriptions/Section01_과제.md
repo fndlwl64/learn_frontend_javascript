@@ -5,7 +5,7 @@
 // 변수 호이스팅
 var sum = a + b; // 아직 값이 할당되지 않음
 var a = 10, b = 20;
-console.log(sum); // Nan 출력
+console.log(sum); // NaN 출력
 
 // 함수 호이스팅
 runAlert();
