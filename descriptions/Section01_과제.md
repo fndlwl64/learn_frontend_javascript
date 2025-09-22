@@ -32,3 +32,46 @@ for(let i; i < 10; i++){
 } 
 console.log(i); // for문 스코프 밖에서는 변수 i가 존재하지 않음.
 ```
+4. 아래 코드를 실행할 시 콘솔의 결과는?
+```javascript
+var a = 'hello?'; // 전역 변수
+function fnCall(){
+    console.log(a); 
+    var a = '안녕하세요?'; // 지역 변수
+    function _fnCall(a){
+        console.log(a);
+    }
+    _fnCall(a); // 지역 스코프에서 실행
+}
+fnCall(); // 전역 스코프에서 실행
+```
+- a 변수의 선언들을 먼저 메모리에 저장한다는 점을 고려
+    - 전역 스코프에서 먼저 선언, 지역 스코프에서 선언
+- 이후 할당 시 '안녕하세요?' 값은 재할당이 아니라 할당임을 고려
+- fnCall 실행 시 호이스팅으로 인해 아래에 선언한 a를 콘솔에 실행
+- _fnCall은 함수 내에서 실행 -> fnCall내에서 할당된 파라미터 값을 인식
+### 콘솔 결과
+```
+undefined
+안녕하세요?
+```
+5. 아래 코드를 실행할 시 콘솔의 결과는?
+```javascript
+var a = 'hello?'; // 전역 변수
+function fnCall(){
+    console.log(a); 
+    var a = '안녕하세요?'; // 지역 변수
+    function _fnCall(){
+        console.log(a);
+    }
+    _fnCall(); // 지역 스코프에서 실행
+}
+fnCall(); // 전역 스코프에서 실행
+```
+- fnCall의 콘솔 결과는 4번과 문제와 동일
+- _fnCall은 fnCall의 a 변수를 인자로 받지 않음
+- _fnCall이 실행되는 스코프 밖의 전역 변수 a를 인식
+```
+undefined
+hello?
+```
