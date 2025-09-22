@@ -12,6 +12,7 @@
 - [섹션01(변수, 상수, 스코프, 호이스팅)](./descriptions/Section01.md)
     - [과제](./descriptions/Section01_과제.md)
 - [섹션02(함수, 객체)](./descriptions/Section02.md)
+- [섹션03(비동기)](./descriptions/Section03.md)
 ### 샘플 페이지
 - [샘플 페이지](https://fndlwl64.github.io/learn_frontend_javascript/)
     - 코드 하이라이팅: highlight.js (BSD 3-Clause License)
