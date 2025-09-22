@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+
+    <!-- and it's easy to individually load additional languages -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/go.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</head>
+<body>
+    <h1>Array</h1>
+    <h2>Script</h2>
+    <pre>
+        <code class="language-javascript">
+        /**현재 페이지에서 실행한 자바스크립트 코드(개발자도구로 결과 확인 가능)*/
+        // 반복문
+        let array = [1,2,3,4,5];
+        array.forEach((elm, idx, array) => {
+            console.log(`
+                element: ${elm},
+                idx: ${idx},
+                array Length: ${array.length}
+            `);
+        });
+
+        // 요소 접근
+        console.log(array.at(-1)); // 맨 마지막 요소 접근
+        console.log(array.includes(3)); // 포함 유무
+        console.log(array.indexOf(3)); // 해당 값 인덱스
+        // 특정 요소 찾기
+        let findIdx = array.findIndex((elm) => elm === 4);
+        console.log(findIdx); 
+
+        // 요소 결합
+        // 복수의 array 통합
+        let array1 = ["a","b","c"];
+        let concatArray = array1.concat(["d","e"]);
+        console.log(concatArray);
+
+        // 문자열로 통합
+        console.log(array1.join("/"));
+
+        // 정렬
+        let sorted = [1,4,2,3,8].sort((a, b) => b-a); // 내림차순
+        console.log(sorted);
+
+        // 누적 함수
+        let sum = sorted.reduce((acc, cur, idx) => {
+            return acc + cur;
+        });
+        console.log(sum);
+
+        // 타입 체크
+        console.log(Array.isArray(array1), Array.isArray(sorted), Array.isArray(array1.join("/")));
+        </code>
+    </pre>
+    <script>
+        /**현재 페이지에서 실행한 자바스크립트 코드(개발자도구로 결과 확인 가능)*/
+        // 반복문
+        let array = [1,2,3,4,5];
+        array.forEach((elm, idx, array) => {
+            console.log(`
+                element: ${elm},
+                idx: ${idx},
+                array Length: ${array.length}
+            `);
+        });
+
+        // 요소 접근
+        console.log(array.at(-1)); // 맨 마지막 요소 접근
+        console.log(array.includes(3)); // 포함 유무
+        console.log(array.indexOf(3)); // 해당 값 인덱스
+        // 특정 요소 찾기
+        let findIdx = array.findIndex((elm) => elm === 4);
+        console.log(findIdx); 
+
+        // 요소 결합
+        // 복수의 array 통합
+        let array1 = ["a","b","c"];
+        let concatArray = array1.concat(["d","e"]);
+        console.log(concatArray);
+
+        // 문자열로 통합
+        console.log(array1.join("/"));
+
+        // 정렬
+        let sorted = [1,4,2,3,8].sort((a, b) => b-a); // 내림차순
+        console.log(sorted);
+
+        // 누적 함수
+        let sum = sorted.reduce((acc, cur, idx) => {
+            return acc + cur;
+        });
+        console.log(sum);
+
+        // 타입 체크
+        console.log(Array.isArray(array1), Array.isArray(sorted), Array.isArray(array1.join("/")));
+    </script>
+</body>
+</html>
