@@ -18,3 +18,4 @@
     - 코드 하이라이팅: highlight.js (BSD 3-Clause License)
 ### 기타
 - [DOM 정리](./descriptions/DOM.md)
+- [비동기 원리 정리](./descriptions/Async.md)
