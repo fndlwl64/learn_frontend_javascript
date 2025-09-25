@@ -1,0 +1,11 @@
+.container{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+.input_dates{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}

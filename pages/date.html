@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Date</h1>
+        <ul>
+            <li class="input_dates">
+                <h3>날짜 이벤트</h3>
+                <label for="start_date">
+                    <span>시작 날짜: </span>
+                    <input type="date" id="start_date"/>
+                </label>
+                <label for="end_date">
+                    <span>끝 날짜: </span>
+                    <input type="date" id="end_date"/>
+                </label>
+            </li>
+        </ul>
+    </div>
+    <script>
+        const startDateElement = document.getElementById("start_date");
+        const endDateElement = document.getElementById("end_date");
+
+        startDateElement.addEventListener("change", (e) => {
+            // 시작 날짜가 변경되면 끝 날짜의 최소값을 시작 날짜로 설정
+            endDateElement.min = e.target.value;
+
+            // 끝 날짜가 시작 날짜보다 이전이면 끝 날짜를 시작 날짜로 설정
+            let startDate = new Date(e.target.value);
+            let endDate = endDateElement.value == "" ? new Date(e.target.value)  : new Date(endDateElement.value);
+            if (endDate <= startDate) 
+                endDateElement.value = e.target.value; 
+        });
+    </script>
+</body>
+</html>

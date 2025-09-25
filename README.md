@@ -16,5 +16,7 @@
 ### 샘플 페이지
 - [샘플 페이지](https://fndlwl64.github.io/learn_frontend_javascript/)
     - 코드 하이라이팅: highlight.js (BSD 3-Clause License)
+- [날짜 샘플 페이지](https://fndlwl64.github.io/learn_frontend_javascript/pages/date.html)
 ### 기타
 - [DOM 정리](./descriptions/DOM.md)
+- [비동기 원리 정리](./descriptions/Async.md)
