@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div style="width: 60%; max-height: 1000px;">
+        <canvas id="target_chart"></canvas>
+    </div>
+    <div style="text-align: center;">
+        <button id="target_chart_btn" >갱신</button>
+    </div>
+
+    <script>
+        class BarChartUnit {
+            constructor(canvasId, chartData = null, options = null) {
+                this.id = canvasId;
+                this.data = chartData;
+                this.options = options;
+                this.chart = null;
+                
+                this.defaultOptions();
+                this.defaultData();
+
+                this.createChart();
+            }
+
+            // 디폴트 옵션
+            defaultOptions(options = null) {
+                if (options == null) {
+                    this.options = {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top'
+                            },
+                            tooltip: {
+                                enabled: true
+                            }
+                        },
+                        scales: {
+                            x: {
+                                ticks: {
+                                    autoSkip: true,
+                                    maxRotation: 0
+                                }
+                            },
+                            y: {
+                                beginAtZero: true,
+                                grid: {
+                                    display: false
+                                }
+                            }
+                        }
+                    };
+                }
+            }
+
+            // 디폴트 데이터
+            defaultData(data) {
+                if (data == null) {
+                    this.data = {
+                        labels: ['A', 'B', 'C', 'D'],
+                        datasets: [
+                            {
+                                label: '기본 데이터',
+                                data: [12, 19, 3, 5],
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.6)',
+                                    'rgba(54, 162, 235, 0.6)',
+                                    'rgba(255, 206, 86, 0.6)',
+                                    'rgba(75, 192, 192, 0.6)'
+                                ],
+                                borderRadius: 4
+                            }
+                        ]
+                    };
+                }
+            }
+
+            // 차트 생성
+            createChart() {
+                if (this.chart == null) {
+                    const ctx = document.getElementById(this.id).getContext('2d');
+                    this.chart = new Chart(ctx, {
+                        type: 'bar',
+                        data: this.data,
+                        options: this.options
+                    });
+                }
+            }
+
+            // 차트 업데이트
+            updateData(newData) {
+                this.chart.data = newData;
+                this.chart.update();
+            }
+
+            // 옵션 업데이트
+            updateOptions(newOptions) {
+                this.chart.options = newOptions;
+                this.chart.update();
+            }
+
+            // 차트 제거
+            destroy() {
+                if (this.chart) {
+                    this.chart.destroy();
+                    this.chart = null;
+                }
+            }
+        }
+
+        (function(){
+            // 차트 생성
+            const barChart = new BarChartUnit("target_chart");
+            
+            // 버튼 이벤트(차트 업데이트)
+            document.querySelector("#target_chart_btn").addEventListener("click", (e) => {
+                e.preventDefault();
+                let newData = {
+                    labels: ['A', 'B', 'C', 'D', 'E'],
+                    datasets: [
+                        {
+                            label: '새 데이터',
+                            data: [12, 19, 3, 5, 11],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.6)',
+                                'rgba(54, 162, 235, 0.6)',
+                                'rgba(255, 206, 86, 0.6)',
+                                'rgba(75, 192, 192, 0.6)',
+                                'rgba(231, 100, 39, 0.6)'
+                            ],
+                            borderRadius: 4
+                        }
+                    ]
+                };
+                barChart.updateData(newData);
+            });
+        }())
+    </script>
+</body>
+</html>
