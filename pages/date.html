@@ -4,38 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .container{
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        .date_component{
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>Date</h1>
-        <ul>
-            <li class="input_dates">
-                <h3>날짜 이벤트</h3>
-                <label for="start_date">
-                    <span>시작 날짜: </span>
-                    <input type="date" id="start_date"/>
-                </label>
-                <label for="end_date">
-                    <span>끝 날짜: </span>
-                    <input type="date" id="end_date"/>
-                </label>
-            </li>
-        </ul>
+        <div class="date_component" id="date_component">
+        </div>
     </div>
     <script>
-        const startDateElement = document.getElementById("start_date");
-        const endDateElement = document.getElementById("end_date");
+        (function(){
+            // 양력 기준으로 날짜 구현
+            const dateList = ["year", "month", "date"];
+            const dateUnit = {year: "년", month: "월", date: "일"};
+            const dateItems = {
+                year: [],
+                month: [],
+                date: []
+            }
+            // 양력 기준 월,일
+            const monthDate = {
+                1: 31,
+                2: 28,
+                3: 31,
+                4: 30,
+                5: 31,
+                6: 30,
+                7: 31,
+                8: 31,
+                9: 30,
+                10: 31,
+                11: 30,
+                12: 31
+            }
+            // 날짜 데이터 저장
+            for(let year=2000; year<=2025; year++)
+                dateItems.year.push(year);
+            for(let month=1; month<=12; month++)
+                dateItems.month.push(month);
+            for(let date=1; date<=31; date++)
+                dateItems.date.push(date);
+            
+            const dateComponent = document.querySelector("#date_component");
+            dateComponent.innerHTML = "";
 
-        startDateElement.addEventListener("change", (e) => {
-            // 시작 날짜가 변경되면 끝 날짜의 최소값을 시작 날짜로 설정
-            endDateElement.min = e.target.value;
+            // 렌더링
+            for(let idx=0; idx<dateList.length; idx++){
+                let key = dateList[idx];
+                let selectBox = document.createElement("select");
+                selectBox.name = key;
+                selectBox.title = key;
+                
+                let item = dateItems[key];
+                for(let itemIdx=0; itemIdx<item.length; itemIdx++){
+                    // 날짜 값 유형별로 요소에 추가
+                    let option = document.createElement("option");
+                    option.value = item.at(itemIdx);
+                    option.textContent = option.value + dateUnit[key];
+                    
+                    selectBox.appendChild(option);
+                }
 
-            // 끝 날짜가 시작 날짜보다 이전이면 끝 날짜를 시작 날짜로 설정
-            let startDate = new Date(e.target.value);
-            let endDate = endDateElement.value == "" ? new Date(e.target.value)  : new Date(endDateElement.value);
-            if (endDate <= startDate) 
-                endDateElement.value = e.target.value; 
-        });
+                dateComponent.appendChild(selectBox);
+            }
+            
+            // change 이벤트 추가
+            // 일자 변경 함수
+            const dateChangeEvent = (e) => {
+                // 초기화
+                const dateTarget = dateComponent.querySelector("[name='date'][title='date']");
+                let lastDate = monthDate[e.target.value];
+                let currentDate;
+                
+                if(dateTarget.value == 31)
+                    currentDate = Math.min(dateTarget.value, lastDate);
+                else
+                    currentDate = dateTarget.value;
+                dateTarget.innerHTML = "";
+
+                let option;
+                for(let date=1; date<=lastDate; date++){
+                    option = document.createElement("option");
+                    option.value = date;
+                    option.textContent = date + dateUnit["date"];
+                    
+                    dateTarget.appendChild(option);
+                }
+                dateTarget.value = currentDate;
+
+            };
+
+            // 날짜 변경 시 동작
+            dateComponent.querySelector("[name='month'][title='month']").addEventListener("change", dateChangeEvent);
+        }())
+
     </script>
 </body>
 </html>
