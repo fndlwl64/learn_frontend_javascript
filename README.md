@@ -14,14 +14,12 @@
 - [섹션02(함수, 객체)](./descriptions/Section02.md)
 - [섹션03(비동기)](./descriptions/Section03.md)
 - [섹션04(DOM)](./descriptions/Section04.md)
-- [섹션05(검색_사이트_클론코딩)]
-    - [페이지](./pages/search.html)
 ### 샘플 페이지
 - [샘플 페이지](https://fndlwl64.github.io/learn_frontend_javascript/)
     - 코드 하이라이팅: highlight.js (BSD 3-Clause License)
 - [차트 샘플](https://fndlwl64.github.io/learn_frontend_javascript/pages/chartjs.html)
 - [과제(날짜 샘플 페이지)](https://fndlwl64.github.io/learn_frontend_javascript/pages/date.html)
-
+- [과제(검색_사이트_클론코딩)](./pages/search.html)
 ### 기타
 - [DOM 정리](./descriptions/DOM.md)
 - [비동기 원리 정리](./descriptions/Async.md)
