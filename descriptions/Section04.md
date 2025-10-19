@@ -20,7 +20,7 @@
     - 리소스 경로 설정(ex. https://example.com/data)
     - Request, Response 객체 사용
     - fetch 함수 호출 시 Promise 객체 반환
-        - await나 then으로 비동기적으로 응답 처리 필요 
+        - await나 then으로 비동기적으로 응답 처리 필요
 
     
 
